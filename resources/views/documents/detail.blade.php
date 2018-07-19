@@ -1,6 +1,6 @@
 
 @extends('master.master')
-
+@section('title','Chi tiết văn bản')
 @section('content')
                 <!-- Breadcrumbs-->
             <ol class="breadcrumb">

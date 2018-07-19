@@ -1,4 +1,5 @@
 @extends('master.master')
+@section('title','Trang chủ Hội nông dân tỉnh Quảng Nam')
 @section('content')
                 <!-- Area Chart Example-->
             <div class="card mb-3">

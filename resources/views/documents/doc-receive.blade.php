@@ -1,5 +1,7 @@
 @extends('master.master')
+@section('title','Văn bản đến')
 @section('content')
+
 <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -10,7 +12,13 @@
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> SỔ CÔNG VĂN - VĂN BẢN ĐẾN</div>
+                    <i class="fa fa-table"></i> SỔ CÔNG VĂN - VĂN BẢN ĐẾN
+                    <div style="float:right;">
+                    <button class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản đến</button>
+                    <button class="btn btn-secondary"><i class="fa fa-book"></i> Sổ văn bản đến</button>
+                    <button class="btn btn-success"><i class="fa fa-print"></i> In sổ văn bản</button>
+                    </div>
+                    </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

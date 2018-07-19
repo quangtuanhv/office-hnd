@@ -25,24 +25,34 @@
 <body>
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header text-center"><h4>Đăng nhập</h4></div>
+      <div class="card-header text-center"><h4>Đăng nhập</h4>
+      <div style="color: red;" class="form-group">
+          @if(session('err'))
+          {{session('err')}}
+          @endif
+          @if(session('notification'))
+          {{session('notification')}}
+          @endif
+      </div>
+      </div>
       <div class="card-body">
-        <form>
+      <form action="{{url('/post-login')}}" method="post">
+      @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Tên tài khoản</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="tài khoản...">
+            <input name="name" class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="tài khoản...">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mật khẩu</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="mật khẩu...">
+            <input name="password" class="form-control" id="exampleInputPassword1" type="password" placeholder="mật khẩu...">
           </div>
           <div class="form-group">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Ghi nhớ đăng nhập</label>
+                <input name="rememberMe" class="form-check-input" type="checkbox" value="1">Ghi nhớ đăng nhập</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Đăng nhập</a>
+          <input class="btn btn-primary btn-block" type="submit" value="Đăng nhập">
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Đăng ký tài khoản mới</a>

@@ -39,12 +39,12 @@
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-file"></i>
-                    <span class="nav-link-text">Example Pages</span>
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Lịch công tác</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a href="login.html">Login Page</a>
+                        <a href="{{url('/events')}}">Lịch công tác cá nhân</a>
                     </li>
                     <li>
                         <a href="register.html">Registration Page</a>
@@ -217,7 +217,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                    <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
             </li>
         </ul>
     </div>

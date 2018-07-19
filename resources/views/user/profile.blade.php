@@ -1,4 +1,5 @@
 @extends('master.master')
+@section('title','Trang cá nhân ')
 @section('content')
 <div class="container">
     <div class="row my-2">

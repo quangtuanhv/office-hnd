@@ -112,6 +112,18 @@
                                     <th>Chuyển đến:</th>
                                     <td></td>
                                 </tr>
+                                @foreach($states as $state)
+                                <tr>
+                                    <td>{{$state->deadline }}</td>
+                                    <td>{!!$state->note!!}</td>
+<td>
+    <!-- {{$state->handlers}} -->
+    @foreach($state->handlers as $hand)
+    {{$hand->handler->user->first_name}}
+    @endforeach
+</td>
+                                </tr>
+                                @endforeach
                                 <tr>
                                     <td></td>
                                     <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a> <br> Phòng Quản lý dự án » Nguyễn Thanh Nam » Trưởng Phòng (Chủ trì) - Đã giao xử lý</td>

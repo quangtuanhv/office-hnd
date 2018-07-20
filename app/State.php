@@ -12,4 +12,7 @@ class State extends Model
     public function handlers(){
         return $this->hasMany('App\Handler','id_state','id');
     }
+    public function user(){
+        return $this->belongsTo('App\User','id_handler','id');
+    }
 }

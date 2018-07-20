@@ -32,4 +32,10 @@ class User extends Authenticatable
     public function events(){
         return $this->hasMany('App\Event');
     }
+    public function handlers(){
+        return $this->hasMany('App\Handler','handler','id');
+    }
+    public function states(){
+        return $this->hasMany('App\State','handler','id');
+    }
 }

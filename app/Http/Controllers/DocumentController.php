@@ -37,7 +37,11 @@ class DocumentController extends Controller
 
     public function showDetailDocument($id){
         $document = Document::where('id',$id)->first();
-        return view('documents.detail',compact('document'));
+        $states = State::where('id_document',$id)->get();
+
+
+
+        return view('documents.detail',compact('document','states'));
     }
 
     public function getPageFoward($id){

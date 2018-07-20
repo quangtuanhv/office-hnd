@@ -16,7 +16,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'passwordConfirm' => 'required|same:password',
             'firstName' => 'required',
-            'phone'=> 'number',
+            'phone'=> 'numeric',
             'lastName' => 'required',
             'position' => 'required',
             'suite' => 'required',

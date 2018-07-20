@@ -13,60 +13,69 @@
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> Chi tiết văn bản số: 25/2018/QD-BXD</div>
+                    <i class="fa fa-table"></i> Chi tiết văn bản số: {{$document->kihieu}}</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tbody>
                                 <tr>
                                     <th>Trích yếu</th>
-                                    <td colspan="3">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</td>
+                                    <td colspan="3">{{$document->trichyeu}}</td>
                                 </tr>
                                 <tr>
                                     <th>Ngày văn bản đến</th>
-                                    <td>16/05/2018</td>
+                                    <td>{{$document->ngayden}}</td>
                                     <th>Loại văn bản</th>
-                                    <td>Thông báo</td>
+                                    <td>{{$document->id_loaivanban}}</td>
                                 </tr>
                                 <tr>
                                     <th>Người nhập</th>
-                                    <td>Nguyễn Mạnh Tuấn</td>
+                                    <td>{{$document->user->profile->first_name}} {{$document->user->profile->last_name}}</td>
                                     <th>Ngày tạo</th>
-                                    <td>17/05/2018 3:27PM</td>
+                                    <td>{{$document->created_at}}</td>
                                 </tr>
                                 <tr>
                                     <th>Số, ký hiệu</th>
-                                    <td>10/2018/QĐ</td>
+                                    <td>{{$document->kihieu}}</td>
                                     <th>Sổ lưu số</th>
-                                    <td>12</td>
+                                    <td>{{$document->id_sovanban}}</td>
                                 </tr>
                                 <tr>
                                     <th>Cơ quan ban hành</th>
-                                    <td>Phòng Nhân sự</td>
+                                    <td>{{$document->coquanbanhanh}}</td>
                                     <th>Ngày ban hành</th>
-                                    <td>15/05/2018</td>
+                                    <td>{{$document->ngaybanhanh}}</td>
                                 </tr>
                                 <tr>
                                     <th>Ngày có hiệu lực</th>
-                                    <td>15/05/2018</td>
+                                    <td>{{$document->ngaycohieuluc}}</td>
                                     <th>Ngày hiết hiệu lực</th>
-                                    <td></td>
+                                    <td>{{$document->ngayhethieuluc}}</td>
                                 </tr>
                                 <tr>
                                     <th>Hiệu lực văn bản</th>
                                     <td>Còn hiệu lực</td>
                                     <th>Lĩnh vực</th>
-                                    <td></td>
+                                    <td>{{$document->linhvuc}}</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th>Ngày xử lý</th>
-                                    <td>10/05/2018</td>
+                                    <td>{{$document->ngayden}}</td>
                                     <th>Người xử lý</th>
-                                    <td>Phòng Nhân sự</td>
-                                </tr>
+                                    <td>{{$document->ngayden}}</td>
+                                </tr> -->
                                 <tr>
                                     <th>Tình trạng</th>
-                                    <td colspan="3">Đang xử lý</td>
+                                    <td colspan="3">@if($document->status==1)
+                                        Chưa xử lý
+                                        @elseif($document->status==2)
+                                        Đang xử lý
+                                        @elseif($document->status == 3)
+                                        Đã xử lý
+                                        @else
+                                        Không xác định
+                                        @endif
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -77,13 +86,27 @@
             <!-- chi tiết xử lý -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> Các bước xử lý</div>
+                    <i class="fa fa-table"></i> Các bước xử lý
+                    <div class="dropdown float-right">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Xử lý văn bản
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Chuyển xử lý</a>
+                        <a class="dropdown-item" href="#">Phân công xử lý</a>
+                        <a class="dropdown-item" href="#">Xử lý</a>
+                        <a class="dropdown-item" href="#">Kết thúc xử lý</a>
+                    </div>
+                    </div>
+                    </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tbody>
                                 <tr>
-                                    <td colspan="2">Nguyễn Văn A <i>chuyển văn bản theo chỉ đạo</i> vào lúc <i>18/05/2018 7:26AM</i></td>
+                                    <td colspan="2">{{$document->user->profile->first_name}} {{$document->user->profile->last_name}} <i>Nhập văn bản đến</i> vào lúc <i>{{$document->created_at}}
+
+                                    </i></td>
                                 </tr>
                                 <tr>
                                     <th>Chuyển đến:</th>

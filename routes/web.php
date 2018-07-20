@@ -29,20 +29,29 @@ Route::group(['middleware'=>'auth'],function(){
         return view('master.home');
     });
     Route::get('/contact', 'ContactController@showContact');
-    Route::get('/document-receive', function () {
-        return view('documents.doc-receive');
-    });
-    Route::get('/detail-document', function() {
-        return view('documents.detail');
-    });
+    
+    
     Route::get('/profile', function() {
         return view('user.profile');
     });
 
     Route::get('/logout','UserController@logout');
-    //lịch cá nhân
-     
+    //lịch cá nhân     
     Route::get('events', 'EventController@index')->name('events.index');
     Route::post('events', 'EventController@addEvent')->name('events.add');
- 
+    Route::get('personal-schedule/{id?}','EventController@showDetailEvent');
+    Route::get('/delete-event/{id?}','EventController@deleteEvent');
+
+
+    //cái luồng đi văn bản làm anh cảm thấy thật đờ mờ
+    //new một văn bản
+    Route::get('/new-document', function(){
+        return view('documents.new-document');
+    });
+    Route::post('new-document', 'DocumentController@addDocument');
+    Route::get('/document-receive','DocumentController@showDocument');
+    Route::get('/detail-document/{id?}','DocumentController@showDetailDocument')->name('detail-document');
+
+    Route::get('/forward-document/{id?}', 'DocumentController@getPageFoward');
+    Route::post('/forward-document/{id?}','DocumentController@saveStateDocument');
 });

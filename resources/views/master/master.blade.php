@@ -9,13 +9,13 @@
     <meta name="author" content="">
     <title>@yield('title')</title>
     <!-- Bootstrap core CSS-->
-    <link href="js/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('js/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="js/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('js/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
-    <link href="js/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="{{asset('js/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
     @yield('header')
 </head>
 
@@ -63,19 +63,19 @@
             </div>
         </div>
         <!-- Bootstrap core JavaScript-->
-        <script src="js/vendor/jquery/jquery.min.js"></script>
-        <script src="js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('js/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- Core plugin JavaScript-->
-        <script src="js/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="{{asset('js/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
         <!-- Page level plugin JavaScript-->
-        <script src="js/vendor/chart.js/Chart.min.js"></script>
-        <script src="js/vendor/datatables/jquery.dataTables.js"></script>
-        <script src="js/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <script src="{{asset('js/vendor/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('js/vendor/datatables/jquery.dataTables.js')}}"></script>
+        <script src="{{asset('js/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin.min.js"></script>
+        <script src="{{asset('js/sb-admin.min.js')}}"></script>
         <!-- Custom scripts for this page-->
-        <script src="js/sb-admin-datatables.min.js"></script>
-        <script src="js/sb-admin-charts.min.js"></script>
+        <script src="{{asset('js/sb-admin-datatables.min.js')}}"></script>
+        <script src="{{asset('js/sb-admin-charts.min.js')}}"></script>
         @yield('footer')
     </div>
 </body>

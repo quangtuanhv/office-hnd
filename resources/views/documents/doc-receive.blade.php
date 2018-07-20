@@ -14,7 +14,7 @@
                 <div class="card-header">
                     <i class="fa fa-table"></i> SỔ CÔNG VĂN - VĂN BẢN ĐẾN
                     <div style="float:right;">
-                    <button class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản đến</button>
+                    <a href="{{url('/new-document')}}" class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản đến</a href="{{url('/new-document')}}">
                     <button class="btn btn-secondary"><i class="fa fa-book"></i> Sổ văn bản đến</button>
                     <button class="btn btn-success"><i class="fa fa-print"></i> In sổ văn bản</button>
                     </div>
@@ -32,7 +32,7 @@
                                     <th>Trích yếu</th>
                                     <th>Ngày ban hành</th>
                                     <th>Loại văn bản</th>
-                                    <th>Nơi nhận</th>
+                                    <th>Trạng thái</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -45,164 +45,33 @@
                                     <th>Trích yếu</th>
                                     <th>Ngày ban hành</th>
                                     <th>Loại văn bản</th>
-                                    <th>Nơi nhận</th>
+                                    <th>Trạng thái</th>
                                 </tr>
                             </tfoot>
                             <tbody>
+                                {{$i=1}}
+                                @foreach($documents as $document)
                                 <tr>
-                                    <td>2</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
+                                    <td>{{$i,$i++}}</td>
+                                    <td>{{$document->ngayden}}</td>
+                                    <td>{{$document->so}}</td>
+                                    <td>{{$document->coquanbanhanh}}</td>
+                                    <td>{{$document->kihieu}}</td>
+                                    <td><a href="{{url('/detail-document',$document->id)}}">{{$document->trichyeu}}</a></td>
+                                    <td>{{$document->ngaybanhanh}}</td>
+                                    <td>{{$document->id_loaivanban}}</td>
+                                    <td>@if($document->status==1)
+                                        Chưa xử lý
+                                        @elseif($document->status==2)
+                                        Đang xử lý
+                                        @elseif($document->status == 3)
+                                        Đã xử lý
+                                        @else
+                                        Không xác định
+                                        @endif
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>04/10/2017</td>
-                                    <td>12</td>
-                                    <td>Chính phủ</td>
-                                    <td>25/2018/QD-BXD</td>
-                                    <td><a href="#">Vv tổ chức rà soát hồ sơ chất lượng các dự án trọng điểm</a></td>
-                                    <td>02/04/2017</td>
-                                    <td>Quyết định</td>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

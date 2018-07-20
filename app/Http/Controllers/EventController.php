@@ -23,7 +23,12 @@ class EventController extends Controller
                 $event->event_name,
                 false,// cài đặt cả ngày hay chỉ là giờ cụ thể true = cả ngày
                 new \DateTime($event->start_date),
-                new \DateTime($event->end_date)
+                new \DateTime($event->end_date),
+                1, 
+                [
+                    'url' => '/personal-schedule/'.$event->id,
+                ]
+                
             );
     	}
     	$calendar_details = Calendar::addEvents($event_list); 
@@ -55,5 +60,13 @@ class EventController extends Controller
         return Redirect::to('/events');
     }
  
+    public function showDetailEvent($id){
+        $event = Event::where('id',$id)->first();
+        return view('calendar.detailEvent',compact('event'));
+    }
+    public function deleteEvent($id){
+        $event = Event::where('id',$id)->delete();
+        return  redirect('/events');;
+    }
  
 }

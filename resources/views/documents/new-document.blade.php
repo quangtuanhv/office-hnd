@@ -1,6 +1,8 @@
 @extends('master.master')
  @section('title', 'Tạo mới văn bản đến')
-
+ @section('header')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+ @endsection
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -37,12 +39,7 @@
                                         </select>
                                     </td>
                                 </tr>
-                                <!-- <tr>
-                                    <th>Người nhập</th>
-                                    <td>Nguyễn Mạnh Tuấn</td>
-                                    <th>Ngày tạo</th>
-                                    <td>17/05/2018 3:27PM</td>
-                                </tr> -->
+                               
                                 <tr>
                                     <th>Số, ký hiệu <span class="text-danger">*</span></th>
                                     <td><input name="so" class="form-control" type="text" required></td>
@@ -79,17 +76,19 @@
                                     <td><input name="nguoiky" class="form-control" type="text" required></td>
                                 </tr>
                                 <tr>
-                                    <!-- <th>Tình trạng</th>
+                                    <th>Kiểu văn bản</th>
                                     <td>
-                                        <select class="form-control" name="" id="">
-                                            <option value="Quyết định">Chưa xử lý</option>
-                                            <option value="Đang xử lý">Đang xử lý</option>
-                                            <option value="Thông báo">Đã xử lý</option>
+                                        <select class="form-control" name="vanbanden" id="">
+                                            <option value="1">Văn bản đến</option>
+                                            <option value="2">Văn bản đi</option>
                                         </select>
-                                    </td> -->
+                                    </td>
                                     <th>Tệp văn bản đính kèm <span class="text-danger">*</span></th>
                                     <td>
-                                        <input class="form-control" type="file" required>
+                                        <div class="input-append">
+                                            <input id="fieldID2" type="text" name="tepdinhkem" value="" class="form-group">
+                                            <a href="finder/filemanager/dialog.php?type=2&amp;field_id=fieldID2&amp;relative_url=1" class="btn iframe-btn" type="button">Select</a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -119,9 +118,23 @@
 @section('footer')
  <!-- tinycem edior -->
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js "></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
         <script>
             tinymce.init({
                 selector: '#editor'
             });
+        </script>
+        <script>
+        $(document).ready(function($) {
+    $('.iframe-btn').fancybox({
+        'width': 880,
+        'height': 570,
+        'type': 'iframe',
+        'autoScale': false
+    });
+
+    $('.iframe-btn').on('click', function() { $(window).on('message', OnMessage); });
+});
         </script>
         @endsection

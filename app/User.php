@@ -36,6 +36,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Handler','handler','id');
     }
     public function states(){
-        return $this->hasMany('App\State','handler','id');
+        return $this->hasMany('App\State','id_handler','id');
     }
 }

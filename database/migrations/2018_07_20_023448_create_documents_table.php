@@ -31,6 +31,7 @@ class CreateDocumentsTable extends Migration
             $table->string('noidung')->nullable();
             $table->integer('nguoisoan');// lấy tên ko đc lấy id vì khi khóa thì nó sẽ
             $table->integer('status');
+            $table->integer('vanbanden');//1= văn bản đến  2= văn bản đi
             $table->timestamps();
         });
     }

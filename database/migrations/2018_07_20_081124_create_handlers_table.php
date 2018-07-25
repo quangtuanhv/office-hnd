@@ -16,6 +16,7 @@ class CreateHandlersTable extends Migration
         Schema::create('handlers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('handler');
+            $table->integer('status');
             $table->unsignedInteger('id_state');
             $table->timestamps();
             $table->foreign('id_state')

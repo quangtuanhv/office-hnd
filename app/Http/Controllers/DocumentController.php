@@ -20,18 +20,19 @@ class DocumentController extends Controller
 		$doc->coquanbanhanh  = $req->coquanbanhanh;
 		$doc->nguoiky 		 = $req->nguoiky;
 		$doc->chucvu		 = $req->chucvu;
-		$doc->tepdinhkem	 = '$req->tepdinhkem';
+		$doc->tepdinhkem	 = $req->tepdinhkem;
 		$doc->noidung		 = $req->noidung;
 		$doc->nguoisoan      =  Auth::id();
         $doc->status 		 =  1;
         $doc->ngaycohieuluc  = $req->ngaycohieuluc;
         $doc->ngayhethieuluc = $req->ngayhethieuluc;
         $doc->linhvuc        = $req->linhvuc;
+        $doc->vanbanden      = $req->vanbanden;
 		$doc->save();
         return redirect("/")->with('done','Đã gửi xong công văn, vui lòng chờ ký duyệt');
     }
     public function showDocument(){
-        $documents = Document::all();
+        $documents = Document::Where('vanbanden',1)->get();
         return view('documents.doc-receive',compact('documents'));
     }
 
@@ -61,8 +62,13 @@ class DocumentController extends Controller
             $hand = new Handler;
             $hand->handler  = $handler;
             $hand->id_state = $state->id;
+            $hand->status   = 1;
             $hand->save();
         }
         return redirect()->route('detail-document', ['id' => $id]);
+    }
+    public function getSubHandler($id){
+        $doc = Document::where('id',$id)->first();
+        return view('documents.sub-handle.sub-handle',compact('doc'));
     }
 }

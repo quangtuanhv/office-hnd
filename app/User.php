@@ -38,4 +38,7 @@ class User extends Authenticatable
     public function states(){
         return $this->hasMany('App\State','id_handler','id');
     }
+    public function opinions(){
+        return $this->hasMany('App\Opinion','user_id','id');
+    }
 }

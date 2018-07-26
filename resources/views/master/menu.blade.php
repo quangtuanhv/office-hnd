@@ -11,32 +11,7 @@
                     <span class="nav-link-text">Danh bạ</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Charts</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">Components</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <li>
-                        <a href="navbar.html">Navbar</a>
-                    </li>
-                    <li>
-                        <a href="cards.html">Cards</a>
-                    </li>
-                </ul>
-            </li>
+            
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-table"></i>
@@ -47,13 +22,10 @@
                         <a href="{{url('/events')}}">Lịch công tác cá nhân</a>
                     </li>
                     <li>
-                        <a href="register.html">Registration Page</a>
+                        <a href="{{url('/events')}}">Lịch công tác phòng ban</a>
                     </li>
                     <li>
-                        <a href="forgot-password.html">Forgot Password Page</a>
-                    </li>
-                    <li>
-                        <a href="blank.html">Blank Page</a>
+                        <a href="{{url('/events')}}">Lịch công tác cơ quan</a>
                     </li>
                 </ul>
             </li>
@@ -71,10 +43,18 @@
                                 <a href="{{url('/document-receive')}}">Danh sách văn bản đến</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Danh sách chờ xử lý</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#document2">Văn bản đi</a>
+                        <ul class="sidenav-third-level collapse" id="document2">
+                            <li>
+                                <a href="{{url('/document-send')}}">Danh sách văn bản đi</a>
                             </li>
                             <li>
-                                <a href="#">Third Level Item</a>
+                                <a href="#">Danh sách chờ xử lý</a>
                             </li>
                         </ul>
                     </li>
@@ -114,7 +94,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="#">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Link</span>
+                    <span class="nav-link-text">Trang cá nhân</span>
                 </a>
             </li>
         </ul>

@@ -1,0 +1,40 @@
+ID,Tên,Đã đăng,Hiển thị trong danh mục,Danh mục,Hình ảnh
+5468,Quà tặng pin sạc sự phòng 1,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-05-300x300.jpg
+5469,Quà tặng pin sạc sự phòng 2,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-06-300x300.jpg
+5470,Quà tặng pin sạc sự phòng 3,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-07-300x300.jpg
+5471,Quà tặng pin sạc sự phòng 4,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-09-300x300.jpg
+5472,Quà tặng pin sạc sự phòng 5,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-10-300x300.jpg
+5473,Quà tặng pin sạc sự phòng 6,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-11-300x300.jpg
+5474,Quà tặng pin sạc sự phòng 7,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-12-300x300.jpg
+5475,Quà tặng pin sạc sự phòng 8,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-13-300x300.jpg
+5476,Quà tặng pin sạc sự phòng 9,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-14-300x300.jpg
+5477,Quà tặng pin sạc sự phòng 10,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-16-300x300.jpg
+5478,Quà tặng pin sạc sự phòng 11,1,visible,Quà tặng công nghệ > Pin sạc dự phòng,http://songvietphat.com/wp-content/uploads/2018/07/pin-sạc-dự-phòng-chính-hãng-28-300x300.jpg
+5482,Mẫu USB quảng cáo 1,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-01-300x300.jpg
+5483,Mẫu USB quảng cáo 2,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-02-300x300.jpg
+5484,Mẫu USB quảng cáo 3,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-03-300x300.jpg
+5485,Mẫu USB quảng cáo 4,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-04-300x300.jpg
+5486,Mẫu USB quảng cáo 5,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-05-300x300.jpg
+5487,Mẫu USB quảng cáo 6,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-06-300x300.jpg
+5488,Mẫu USB quảng cáo 7,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-07-300x300.jpg
+5489,Mẫu USB quảng cáo 8,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-08-300x300.jpg
+5490,Mẫu USB quảng cáo 9,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-09-300x300.jpg
+5491,Mẫu USB quảng cáo 10,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-10-300x300.jpg
+5492,Mẫu USB quảng cáo 11,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-12-300x300.jpg
+5493,Mẫu USB quảng cáo 12,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-013-300x300.png
+5494,Mẫu USB quảng cáo 13,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-014-300x300.jpg
+5495,Mẫu USB quảng cáo 14,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-quà-tặng-usb-11-300x300.jpg
+5496,Mẫu USB quảng cáo 15,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ01-300x300.jpg
+5497,Mẫu USB quảng cáo 16,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-02-300x300.jpg
+5498,Mẫu USB quảng cáo 17,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-03-300x300.jpg
+5499,Mẫu USB quảng cáo 18,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-04-300x300.jpg
+5500,Mẫu USB quảng cáo 19,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-05-300x300.jpg
+5501,Mẫu USB quảng cáo 20,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-06-300x300.jpg
+5502,Mẫu USB quảng cáo 21,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-07-300x300.jpg
+5503,Mẫu USB quảng cáo 22,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-08-300x300.jpg
+5504,Mẫu USB quảng cáo 23,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-thẻ-09-300x300.jpg
+5505,Mẫu USB quảng cáo 24,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-vỏ-da-3-300x300.jpg
+5506,Mẫu USB quảng cáo 25,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-vỏ-da-7-300x300.jpg
+5507,Mẫu USB quảng cáo 26,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-vỏ-da-8-300x300.jpg
+5508,Mẫu USB quảng cáo 27,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-vỏ-da-9-300x300.jpg
+5509,Mẫu USB quảng cáo 28,1,visible,Quà tặng công nghệ > USB quảng cáo,http://songvietphat.com/wp-content/uploads/2018/07/usb-vỏ-da-300x300.jpg

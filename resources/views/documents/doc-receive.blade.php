@@ -14,8 +14,8 @@
                 <div class="card-header">
                     <i class="fa fa-table"></i> SỔ CÔNG VĂN - VĂN BẢN ĐẾN
                     <div style="float:right;">
-                    <a href="{{url('/new-document')}}" class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản đến</a href="{{url('/new-document')}}">
-                    <button class="btn btn-secondary"><i class="fa fa-book"></i> Sổ văn bản đến</button>
+                    <a href="{{url('/new-document')}}" class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản </a href="{{url('/new-document')}}">
+                    <button class="btn btn-secondary"><i class="fa fa-book"></i> Sổ văn bản </button>
                     <button class="btn btn-success"><i class="fa fa-print"></i> In sổ văn bản</button>
                     </div>
                     </div>

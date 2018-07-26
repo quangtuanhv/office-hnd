@@ -117,8 +117,8 @@
                                     <th>Nội dung bàn giao</th>
                                     <th>Người chuyển xử lý</th>
                                     <th>Người xử lý</th>
-                                    <th>File đính kèm</th>
                                     <th>Tình trạng</th>
+                                    <th>File đính kèm</th>
                                 </tr>
                                 @foreach($states as $state)
                                 <tr>
@@ -127,6 +127,7 @@
                                     <td>{{$state->user->profile->first_name}}</td>
                                     <td>
                                         @foreach($state->handlers as $hand)
+                            
                                         {{$hand->user->profile->first_name}} <br>
                                         @endforeach
                                     </td>
@@ -168,7 +169,18 @@
                                         <th>Nội dung xử lý</th>
                                         <th>File đính kèm</th>
                                     </tr>
-                                    
+                                    @foreach($opinions as $opinion)
+                                    <tr>
+                                        <td>{{$opinion->created_at}}</td>
+                                        <td>{{$opinion->user->profile->first_name}}</td>
+                                        <td>{!!$opinion->content!!}</td>
+                                        <td>
+                                            @if($opinion->file != null)
+                                        <a href="{{$opinion->file}}">Tải về máy</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

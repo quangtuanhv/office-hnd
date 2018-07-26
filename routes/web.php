@@ -56,4 +56,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/forward-document/{id?}','DocumentController@saveStateDocument');
 
     Route::get('/sub-handle-document/{id?}', 'DocumentController@getSubHandler');
+    Route::post('/handle-document/{id?}', 'DocumentController@postSubHandler');
+
+    Route::get('/document-send','DocumentController@showDocumentSend');
 });

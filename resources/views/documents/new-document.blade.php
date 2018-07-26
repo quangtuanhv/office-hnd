@@ -86,8 +86,8 @@
                                     <th>Tệp văn bản đính kèm <span class="text-danger">*</span></th>
                                     <td>
                                         <div class="input-append">
-                                            <input id="fieldID2" type="text" name="tepdinhkem" value="" class="form-group">
-                                            <a href="finder/filemanager/dialog.php?type=2&amp;field_id=fieldID2&amp;relative_url=1" class="btn iframe-btn" type="button">Select</a>
+                                            <input id="filename" type="text" name="tepdinhkem" value="" class="form-group">
+                                        <a href="{{asset('/finder/filemanager/dialog.php?field_id=filename&amp')}}" class="btn iframe-btn" type="button">Select</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -136,5 +136,5 @@
 
     $('.iframe-btn').on('click', function() { $(window).on('message', OnMessage); });
 });
-        </script>
-        @endsection
+</script>
+@endsection

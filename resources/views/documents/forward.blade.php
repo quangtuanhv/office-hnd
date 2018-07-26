@@ -1,6 +1,8 @@
 @extends('master.master')
  @section('title', 'Chuyển tiếp xử lý văn bản')
-
+ @section('header')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+ @endsection
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -34,7 +36,10 @@
                                 
                                     <th>Tệp văn bản đính kèm </th>
                                     <td>
-                                        <input name="file" class="form-control" type="file" >
+                                        <div class="input-append">
+                                            <input id="filename" type="text" name="tepdinhkem" value="" class="form-group">
+                                        <a href="{{asset('/finder/filemanager/dialog.php?field_id=filename&amp')}}" class="btn iframe-btn" type="button">Select</a>
+                                        </div>
                                     </td>
                                     <th>Người nhận <span class="text-danger">*</span></th>
                                     <td>
@@ -106,10 +111,23 @@
 @section('footer')
  <!-- tinycem edior -->
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js "></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
         <script>
             tinymce.init({
                 selector: '#editor'
             });
- </script>
-<script src="{{asset('js/forward-doc.js')}}"></script>
+        </script>
+        <script>
+        $(document).ready(function($) {
+    $('.iframe-btn').fancybox({
+        'width': 880,
+        'height': 570,
+        'type': 'iframe',
+        'autoScale': false
+    });
+
+    $('.iframe-btn').on('click', function() { $(window).on('message', OnMessage); });
+});
+</script>
 @endsection

@@ -7,6 +7,7 @@ use App\Document;
 use Auth;
 use App\State;
 use App\Handler;
+use App\Opinion;
 class DocumentController extends Controller
 {
     public function addDocument(Request $req){
@@ -38,11 +39,9 @@ class DocumentController extends Controller
 
     public function showDetailDocument($id){
         $document = Document::where('id',$id)->first();
-        $states = State::where('id_document',$id)->get();
-
-
-
-        return view('documents.detail',compact('document','states'));
+        $states   = State::where('id_document',$id)->get();
+        $opinions  = Opinion::where('document_id',$id)->get();
+        return view('documents.detail',compact('document','states','opinions'));
     }
 
     public function getPageFoward($id){
@@ -70,5 +69,23 @@ class DocumentController extends Controller
     public function getSubHandler($id){
         $doc = Document::where('id',$id)->first();
         return view('documents.sub-handle.sub-handle',compact('doc'));
+    }
+
+    public function postSubHandler(Request $req, $id){
+        $opinion = new Opinion;
+        $opinion->user_id = Auth::id();
+        $opinion->document_id = $id;
+        $opinion->content = $req->content;
+        $opinion->file    = $req->tepdinhkem;
+        $opinion->save();
+        return redirect()->route('detail-document', ['id' => $id]);;
+
+
+    }
+
+    // ahihi ihaha send 
+    public function showDocumentSend(){
+        $documents = Document::Where('vanbanden',2)->get();
+        return view('documents.doc-receive',compact('documents'));
     }
 }

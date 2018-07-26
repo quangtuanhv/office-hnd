@@ -1,6 +1,8 @@
 @extends('master.master')
  @section('title', 'Xử lý văn bản')
-
+ @section('header')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+ @endsection
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -16,7 +18,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <p style=" text-align: center">Xử lý văn bản <a href="{{url('/detail-document',$doc->id)}}">{{$doc->trichyeu}}</a></p>
-                       <form action="{{url('/forward-document',$doc->id)}}" method="post">
+                       <form action="{{url('/handle-document',$doc->id)}}" method="post">
                            @csrf
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tbody>
@@ -24,7 +26,10 @@
                                 <tr>
                                     <th>Tệp văn bản đính kèm </th>
                                     <td>
-                                        <input name="file" class="form-control" type="file" >
+                                        <div class="input-append">
+                                            <input id="filename" type="text" name="tepdinhkem" value="" class="form-group">
+                                        <a href="{{asset('/finder/filemanager/dialog.php?field_id=filename&amp')}}" class="btn iframe-btn" type="button">Select</a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -54,10 +59,23 @@
 @section('footer')
  <!-- tinycem edior -->
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js "></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
         <script>
             tinymce.init({
                 selector: '#editor'
             });
- </script>
-<script src="{{asset('js/forward-doc.js')}}"></script>
+        </script>
+        <script>
+        $(document).ready(function($) {
+    $('.iframe-btn').fancybox({
+        'width': 880,
+        'height': 570,
+        'type': 'iframe',
+        'autoScale': false
+    });
+
+    $('.iframe-btn').on('click', function() { $(window).on('message', OnMessage); });
+});
+</script>
 @endsection

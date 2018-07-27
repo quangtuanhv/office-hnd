@@ -31,9 +31,10 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/contact', 'ContactController@showContact');
     
     
-    Route::get('/profile', function() {
-        return view('user.profile');
-    });
+    Route::get('/profile', 'UserController@showProfile');
+    Route::post('/update-profile', 'UserController@updateProfile');
+    Route::post('/change-password','UserController@changePassword');
+
 
     Route::get('/logout','UserController@logout');
     //lịch cá nhân     
@@ -41,6 +42,11 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('events', 'EventController@addEvent')->name('events.add');
     Route::get('personal-schedule/{id?}','EventController@showDetailEvent');
     Route::get('/delete-event/{id?}','EventController@deleteEvent');
+    //Lịch phòng ban
+    Route::get('events-suite', 'CalendarSuiteController@index')->name('calendars.index');
+    Route::post('events-suite', 'CalendarSuiteController@addEvent')->name('calendars.add');
+    Route::get('calendar-suite/{id?}','CalendarSuiteController@showDetailEvent');
+    Route::get('/delete-calendar-suite/{id?}','CalendarSuiteController@deleteEvent');
 
 
     //cái luồng đi văn bản làm anh cảm thấy thật đờ mờ
@@ -57,6 +63,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/sub-handle-document/{id?}', 'DocumentController@getSubHandler');
     Route::post('/handle-document/{id?}', 'DocumentController@postSubHandler');
+
+    Route::post('comment-document/{id?}','DocumentController@postComment');
 
     Route::get('/document-send','DocumentController@showDocumentSend');
 });

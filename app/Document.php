@@ -12,4 +12,7 @@ class Document extends Model
     public function states(){
         return $this->hasMany('App\State','id_document','id');
     }
+    public function comments(){
+        return $this->hasMany('App\Comment','id_doc','id');
+    }
 }

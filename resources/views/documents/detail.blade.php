@@ -196,75 +196,37 @@
                             <div class="container">
                                     <div class="row">
                                         <div class="comments col-md-12" id="comments">
+                                            @foreach($comments as $comment)
                                             <!-- comment -->
                                             <div class="comment mb-2 row">
                                                 <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-                                                    <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar"></a>
+                                                <a href=""><img class="mx-auto rounded-circle img-fluid" src="{{asset($comment->user->profile->avatar)}}" alt="avatar"></a>
                                                 </div>
                                                 <div class="comment-content col-md-11 col-sm-10">
-                                                    <h6 class="small comment-meta"><a href="#">admin</a> Today, 2:38</h6>
-                                                    <div class="comment-body">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <a href>http://wwwwww.com</a> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-                                                            <br>
-                                                            <a href="" class="text-right small"><i class="ion-reply"></i> Reply</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- reply is indented -->
-                                                <div class="comment-reply col-md-11 offset-md-1 col-sm-10 offset-sm-2">
-                                                    <div class="row">
-                                                        <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-                                                            <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m101.jpg" alt="avatar"></a>
-                                                        </div>
-                                                        <div class="comment-content col-md-11 col-sm-10 col-12">
-                                                            <h6 class="small comment-meta"><a href="#">phildownney</a> Today, 12:31</h6>
-                                                            <div class="comment-body">
-                                                                <p>Really?? Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
-                                                                    <br>
-                                                                    <a href="" class="text-right small"><i class="ion-reply"></i> Reply</a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                               </div>
-                                               <!-- /reply is indented -->
-                                            </div>
-                                            <!-- /comment -->
-                                            <!-- comment -->
-                                            <div class="comment mb-2 row">
-                                                <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-                                                    <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/w102.jpg" alt="avatar"></a>
-                                                </div>
-                                                <div class="comment-content col-md-11 col-sm-10">
-                                                    <h6 class="small comment-meta"><a href="#">maslarino</a> Yesterday, 5:03 PM</h6>
-                                                    <div class="comment-body">
-                                                        <p>Sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-                                                            <br>
-                                                            <a href="" class="text-right small"><i class="ion-reply"></i> Reply</a>
+                                                <h6 class="small comment-meta"><span class="text-danger">{{$comment->user->profile->first_name}} {{$comment->user->profile->last_name}} </span>đã bình luận {{$comment->created_at}}</h6>
+                                                    <div class="comment-body">{!!$comment->content!!}
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- /comment -->
-                                            
-                                
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <form>
-                                            <fieldset class="col-9">
-                                              <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Bình luận">
-                                              </div>
+                                <form action="{{url('comment-document',$document->id)}}" method="post">
+                                    @csrf
+                                        <fieldset class="col-9">
+                                            <div class="form-group">
+                                                <input type="text" name="content" class="form-control" placeholder="Nhập bình luận" required>
+                                            </div>
                                              
-                                              <div class="row pt-2">
-                                                    <div class="col-12">
-                                                        <input type="submit" class="btn btn-sm btn-primary" value="Bình luận">
-                                                    </div>
+                                            <div class="row pt-2">
+                                                <div class="col-12">
+                                                    <input type="submit" class="btn btn-sm btn-primary" value="Bình luận">
                                                 </div>
-                                            </fieldset>
-                                          </form>
+                                            </div>
+                                        </fieldset>
+                                    </form>
                                 </div>
                     </div>
                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>

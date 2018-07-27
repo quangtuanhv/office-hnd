@@ -8,6 +8,7 @@ use Auth;
 use App\State;
 use App\Handler;
 use App\Opinion;
+use App\Comment;
 class DocumentController extends Controller
 {
     public function addDocument(Request $req){
@@ -38,10 +39,11 @@ class DocumentController extends Controller
     }
 
     public function showDetailDocument($id){
-        $document = Document::where('id',$id)->first();
-        $states   = State::where('id_document',$id)->get();
+        $document  = Document::where('id',$id)->first();
+        $states    = State::where('id_document',$id)->get();
         $opinions  = Opinion::where('document_id',$id)->get();
-        return view('documents.detail',compact('document','states','opinions'));
+        $comments  = Comment::where('id_doc',$id)->get(); 
+        return view('documents.detail',compact('document','states','opinions','comments'));
     }
 
     public function getPageFoward($id){
@@ -81,6 +83,15 @@ class DocumentController extends Controller
         return redirect()->route('detail-document', ['id' => $id]);;
 
 
+    }
+    
+    public function postComment(Request $req, $id){
+        $comment = new Comment;
+        $comment->user_id = Auth::id();
+        $comment->content = $req->content;
+        $comment->id_doc  = $id;
+        $comment->save();
+        return redirect()->back();
     }
 
     // ahihi ihaha send 

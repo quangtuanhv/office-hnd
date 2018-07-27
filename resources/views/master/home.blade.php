@@ -6,6 +6,10 @@
                 <div class="card-header">
                     <marquee style="color: red; font-size: 30px;">Website Quản lý công văn Hội nông dân tỉnh Quảng Nam</marquee>
                 </div>
+                   @if(session('changePassDone'))
+                        <div id="note"></div>
+                    @endif
+                    
                 <div class="card-body">
                     <img style="width: 100%;height: auto;" src="./me-thu-head.jpg" alt="">
                 </div>
@@ -78,5 +82,14 @@
                     </div>
                 </div>
             </div>
+@endsection
+@section('footer')
+
+<script src="{{asset('js/notify.min.js')}}"></script>
+<script>
+   $(document).ready(function(){
+    $('#note').notify("Đổi mật khẩu thành công", "info");
+   });
+</script>
 @endsection
 

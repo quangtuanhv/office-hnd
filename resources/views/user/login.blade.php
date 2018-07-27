@@ -26,14 +26,14 @@
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header text-center"><h4>Đăng nhập</h4>
-      <div style="color: red;" class="form-group">
-          @if(session('err'))
-          {{session('err')}}
-          @endif
-          @if(session('notification'))
-          {{session('notification')}}
-          @endif
-      </div>
+        <div style="color: red;" class="form-group">
+            @if(session('err'))
+            {{session('err')}}
+            @endif
+            @if(session('notification'))
+            {{session('notification')}}
+            @endif
+        </div>
       </div>
       <div class="card-body">
       <form action="{{url('/post-login')}}" method="post">

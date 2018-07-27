@@ -37,7 +37,7 @@
                                     <th>Tệp văn bản đính kèm </th>
                                     <td>
                                         <div class="input-append">
-                                            <input id="filename" type="text" name="tepdinhkem" value="" class="form-group">
+                                            <input id="filename" type="text" name="tepdinhkem" value="" class="form-control">
                                         <a href="{{asset('/finder/filemanager/dialog.php?field_id=filename&amp')}}" class="btn iframe-btn" type="button">Select</a>
                                         </div>
                                     </td>

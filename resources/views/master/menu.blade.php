@@ -22,7 +22,7 @@
                         <a href="{{url('/events')}}">Lịch công tác cá nhân</a>
                     </li>
                     <li>
-                        <a href="{{url('/events')}}">Lịch công tác phòng ban</a>
+                        <a href="{{url('/events-suite')}}">Lịch công tác phòng ban</a>
                     </li>
                     <li>
                         <a href="{{url('/events')}}">Lịch công tác cơ quan</a>
@@ -92,7 +92,7 @@
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{asset('/profile')}}">
                     <i class="fa fa-fw fa-link"></i>
                     <span class="nav-link-text">Trang cá nhân</span>
                 </a>

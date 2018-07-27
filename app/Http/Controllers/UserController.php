@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Profile;
+use Hash;
 
 class UserController extends Controller
 {
@@ -16,7 +17,6 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'passwordConfirm' => 'required|same:password',
             'firstName' => 'required',
-            'phone'=> 'numeric',
             'lastName' => 'required',
             'position' => 'required',
             'suite' => 'required',
@@ -63,5 +63,42 @@ class UserController extends Controller
     public function logout() {
 		Auth::logout();
 		return redirect('/');
-	}
+    }
+    
+    public function showProfile(){
+        $profile = Profile::where('user_id',Auth::id())->first();
+        return view('user.profile', compact('profile'));
+    }
+    public function updateProfile(Request $request){
+        $validatedData = $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            ]);
+        $profile = Profile::where('user_id',Auth::id())->first();
+        $profile->first_name = $request->firstName;
+        $profile->last_name = $request->lastName;
+        $profile->email = $request->email;
+        $profile->phone = $request->phone;
+        $profile->avatar = $request->avatar;
+        $profile->address = $request->address;
+        $profile->save();
+        return redirect()->back();
+    }
+    public function changePassword(Request $request){
+        $user = Auth::user();
+        $oldpw= $user->password;
+       
+        $validatedData = $request->validate([
+            'newPass' => 'required|string|min:6',
+            'newPasswordConfirm' => 'required|same:newPass',
+            ]);
+           
+            if (Hash::check($request->oldPass, $oldpw) && $validatedData) {   
+                $user->password = Hash::make($request->newPass);
+                $user->save();
+                return redirect('/')->with('changePassDone', ' ');
+            }
+            else
+        return redirect()->back()->with('changePassErr', ' ');          
+    }
 }

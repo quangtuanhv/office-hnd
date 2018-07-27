@@ -32,6 +32,9 @@ class User extends Authenticatable
     public function events(){
         return $this->hasMany('App\Event');
     }
+    public function calendalSuite(){
+        return $this->hasMany('App\CalendalSuite');
+    }
     public function handlers(){
         return $this->hasMany('App\Handler','handler','id');
     }
@@ -40,5 +43,8 @@ class User extends Authenticatable
     }
     public function opinions(){
         return $this->hasMany('App\Opinion','user_id','id');
+    }
+    public function comments(){
+        return $this->hasMany('App\Comment','user_id','id');
     }
 }

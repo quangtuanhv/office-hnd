@@ -67,4 +67,18 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('comment-document/{id?}','DocumentController@postComment');
 
     Route::get('/document-send','DocumentController@showDocumentSend');
+
+    Route::get('delete-doc/{id?}', 'DocumentController@deleteDocument');
+
+    //edit document
+    Route::get('edit-document/{id?}', 'DocumentController@editDocument');
+    Route::post('edit-document/{id?}', 'DocumentController@editPostDocument');
+    //end documents
+    Route::get('end-handle-document/{id?}','DocumentController@endHandleDocument');
+
+    //Tìm kiếm công văn
+    Route::get('search-document',function(){
+        return view('documents.search.search');
+    });
+    Route::post('search-document','DocumentController@searchDocument');
 });

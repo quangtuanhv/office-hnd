@@ -16,10 +16,13 @@ class CreateOpinionsTable extends Migration
         Schema::create('opinions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('document_id');
+            $table->unsignedInteger('document_id');
             $table->text('content')->nullable();
             $table->string('file')->nullable();
             $table->timestamps();
+            $table->foreign('document_id')
+            ->references('id')->on('documents')
+            ->onDelete('cascade');
         });
     }
 

@@ -5,14 +5,14 @@
 </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Danh bạ">
                 <a class="nav-link" href="{{url('/contact')}}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Danh bạ</span>
                 </a>
             </li>
             
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lịch công tác">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Lịch công tác</span>
@@ -29,7 +29,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Văn bản">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#listdocument" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-file"></i>
                     <span class="nav-link-text">Văn bản</span>
@@ -60,7 +60,13 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tìm kiếm văn bản">
+                    <a class="nav-link" href="{{url('/search-document')}}">
+                        <i class="fa fa-search"></i>
+                        <span class="nav-link-text">Tìm kiếm văn bản</span>
+                    </a>
+                </li>
+            {{-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-sitemap"></i>
                     <span class="nav-link-text">Menu Levels</span>
@@ -90,8 +96,8 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            </li> --}}
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Trang cá nhân">
                 <a class="nav-link" href="{{asset('/profile')}}">
                     <i class="fa fa-fw fa-link"></i>
                     <span class="nav-link-text">Trang cá nhân</span>
@@ -106,7 +112,7 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-envelope"></i>
                     <span class="d-lg-none">Messages
@@ -194,7 +200,7 @@
           </span>
                     </div>
                 </form>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>

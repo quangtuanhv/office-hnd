@@ -59,6 +59,9 @@ class DocumentController extends Controller
         $state->deadline    = $req->deadline;
         $state->status      = 1;
         $state->save();
+        $doc = Document::where('id',$id)->first();
+        $doc->status = 2;
+        $doc->save();
         foreach ($req->input('handlers') as $handler) {
             $hand = new Handler;
             $hand->handler  = $handler;
@@ -94,9 +97,60 @@ class DocumentController extends Controller
         return redirect()->back();
     }
 
+    public function deleteDocument($id){
+        Document::where('id',$id)->delete();
+        return  redirect()->back();
+    }
+
     // ahihi ihaha send 
     public function showDocumentSend(){
         $documents = Document::Where('vanbanden',2)->get();
         return view('documents.doc-receive',compact('documents'));
+    }
+    //editdocument:
+    public function editDocument($id){
+        
+        $document =  Document::where('id',$id)->first();
+        if(Auth::id()!=$document->nguoisoan){
+            return "Không có quyền sửa";
+        }
+        return view('documents.edit-document',compact('document'));
+    }
+    public function editPostDocument(Request $req, $id){
+        $doc                 = Document::where('id',$id)->first();
+		$doc->trichyeu		 = $req->trichyeu;
+		$doc->kihieu		 = $req->so;
+		$doc->ngaybanhanh	 = $req->ngaybanhanh;
+		$doc->id_sovanban	 = $req->sovanban;
+		$doc->ngayden 	     = $req->ngayden;
+		$doc->coquanbanhanh  = $req->coquanbanhanh;
+		$doc->nguoiky 		 = $req->nguoiky;
+		$doc->chucvu		 = $req->chucvu;
+		$doc->tepdinhkem	 = $req->tepdinhkem;
+		$doc->noidung		 = $req->noidung;
+		$doc->nguoisoan      =  Auth::id();
+        $doc->ngaycohieuluc  = $req->ngaycohieuluc;
+        $doc->ngayhethieuluc = $req->ngayhethieuluc;
+        $doc->linhvuc        = $req->linhvuc;
+        $doc->vanbanden      = $req->vanbanden;
+		$doc->save();
+        return  redirect()->route('detail-document', ['id' => $id]);
+    }
+    public function endHandleDocument($id){
+        $doc                 = Document::where('id',$id)->first();
+        $doc->status         = 3;
+        $doc->save();
+        return redirect()->back()->with('end','Đã kết thúc văn bản !');
+    }
+    public function searchDocument(Request $request){
+        $doc = $request->all();
+        $documents = Document::where(function($query) use ($doc){
+            $query->Where('documents.ngaybanhanh','>' ,$doc['tungay'])
+                  ->Where('documents.ngaybanhanh','<' ,$doc['denngay'])
+                  ->Where('documents.kihieu',$doc['kihieu'])
+                  ->Where('documents.id_sovanban', $doc['sovanban'])
+                  ->Where('documents.vanbanden', $doc['loai']);
+        })->get();
+        return view('documents.search.result', compact('documents'));
     }
 }

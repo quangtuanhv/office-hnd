@@ -5,9 +5,9 @@
                 <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Trang chủ</a>
+                <a href="{{url('/')}}">Trang chủ</a>
                 </li>
-                <li class="breadcrumb-item active"><a href="#">Văn bản đến</a></li>
+                <li class="breadcrumb-item active"><a href="{{url('/document-receive')}}">Văn bản đến</a></li>
                 <li class="breadcrumb-item active">Chi tiết văn bản</li>
             </ol>
             <!-- Example DataTables Card-->
@@ -88,6 +88,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fa fa-table"></i> Nội dung xử lý
+                    @if($document->status!=3)
                     <div class="dropdown float-right">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         Xử lý văn bản
@@ -95,9 +96,14 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{url('/forward-document',$document->id )}}">Chuyển/Phân công xử lý</a>
                         <a class="dropdown-item" href="{{url('sub-handle-document',$document->id)}}">Xử lý</a>
-                        <a class="dropdown-item" href="#">Kết thúc xử lý</a>
+                        <a class="dropdown-item" href="{{url('end-handle-document',$document->id)}}">Kết thúc xử lý</a>
                     </div>
                     </div>
+                    @else
+                    <div class="float-right text-success">
+                        <h5>Văn bản đã được kết thúc xử lý !</h5>
+                    </div>
+                    @endif
                     </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -146,7 +152,11 @@
                                             @endforeach
                                        
                                     </td> 
-                                    <td><a href="{{asset($state->file)}}">Xem file</a></td>
+                                    <td>
+                                        @if($state->file != null)
+                                        <a href="{{asset($state->file)}}">Tải về máy</a>
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

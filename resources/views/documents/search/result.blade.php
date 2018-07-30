@@ -7,17 +7,12 @@
                 <li class="breadcrumb-item">
                     <a href="#">Trang chủ</a>
                 </li>
-                <li class="breadcrumb-item active">Văn bản đến</li>
+                <li class="breadcrumb-item active">Kết quả tìm kiếm</li>
             </ol>
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> SỔ CÔNG VĂN - VĂN BẢN ĐẾN
-                    <div style="float:right;">
-                    <a href="{{url('/new-document')}}" class="btn btn-primary"><i class="fa fa-file"></i> Nhập văn bản </a href="{{url('/new-document')}}">
-                    <button class="btn btn-secondary"><i class="fa fa-book"></i> Sổ văn bản </button>
-                    <button class="btn btn-success"><i class="fa fa-print"></i> In sổ văn bản</button>
-                    </div>
+                    <i class="fa fa-table"></i> SỔ CÔNG VĂN
                     </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -33,8 +28,7 @@
                                     <th>Ngày ban hành</th>
                                     <th>Loại văn bản</th>
                                     <th>Trạng thái</th>
-                                    <th>Sửa</th>
-                                    <th>Xóa</th>
+                                    
                                 </tr>
                             </thead>
                             <tfoot>
@@ -48,8 +42,7 @@
                                     <th>Ngày ban hành</th>
                                     <th>Loại văn bản</th>
                                     <th>Trạng thái</th>
-                                    <th>Sửa</th>
-                                    <th>Xóa</th>
+                                    
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -74,20 +67,12 @@
                                         Không xác định
                                         @endif
                                     </td>
-                           
-                                    <td>
-                                        <a href="{{url('edit-document',$document->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{url('delete-doc',$document->id)}}"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-                                    </td>
                                 </tr> 
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
 @endsection
 

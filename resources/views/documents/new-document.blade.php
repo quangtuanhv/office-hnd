@@ -99,7 +99,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <textarea id="editor" name="noidung">Next, use our Get Started docs to setup Tiny!</textarea>
+                                        <textarea id="editor" name="noidung"></textarea>
                                     </td>
                                 </tr>
                                 <tr>

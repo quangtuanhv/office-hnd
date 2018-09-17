@@ -14,45 +14,37 @@
                     <i class="fa fa-table"></i> Tìm kiếm văn bản</div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <form action="{{url('search-document')}}" method="post">
-                           @csrf
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tbody>
                                <tr>
-                                    <th>Loại văn bản </th>
+                                    <th>Chọn mục cần tìm kiếm </th>
                                     <td>
-                                        <select class="form-control" name="loai">
-                                            <option value="1">Văn bản đến</option>
-                                            <option value="2">Văn bản đi</option>
+                                        <select class="form-control" id="Search">
+                                            <option value="" disabled selected hidden>Chọn mục cần tìm kiếm</option>
+                                            <option value="/search-with-name">Tìm kiếm theo tên văn bản</option>
+                                            <option value="/search-with-symbol">Tìm kiếm theo số, kí hiệu văn bản</option>
+                                            <option value="/search-with-book">Tìm kiếm theo sổ văn bản</option>
+                                            <option value="/search-with-date">Tìm kiếm theo ngày văn bản đến</option>
+                                            <option value="/search-with-type">Tìm kiếm theo loại văn bản</option>
+                                            <option value="/search-with-general">Tìm kiếm tổng hợp</option>
                                         </select>
                                     </td>
                                </tr>
-                                <tr>
-                                    <th>Từ ngày</th>
-                                    <td>
-                                        <input name="tungay" class="form-control" type="date" >
-                                    </td>
-                                    <th>Đến ngày</th>
-                                    <td><input name="denngay" class="form-control" type="date"></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <th>Số, ký hiệu </th>
-                                    <td><input name="kihieu" class="form-control" type="text"></td>
-                                    <th>Sổ lưu số </th>
-                                    <td><input name="sovanban" class="form-control" type="text"></td>
-                                </tr>
-                                
-                                
-                                <tr>
-                                    <td colspan=" 4 ">
-                                        <button class="btn btn-secondary " style="float: right; " type="submit" >   <i class="fa fa-search"></i> Tìm kiếm văn bản </button>    
-                                    
-                                </tr>
                             </tbody>
                         </table>
-                        </form>
                     </div>
                 </div>
             </div>
+@endsection
+@section('footer')
+<script>
+$(document).ready(function(){
+    $('#Search').change(function(){
+        var url = $(this).val();
+        if(url != 0){
+            $( location ).attr("href", url);
+        }
+    });
+});
+</script>
 @endsection

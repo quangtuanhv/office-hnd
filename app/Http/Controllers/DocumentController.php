@@ -8,6 +8,8 @@ use Auth;
 use App\State;
 use App\Handler;
 use App\Opinion;
+use App\Suite;
+use App\Profile;
 use App\Comment;
 class DocumentController extends Controller
 {
@@ -48,7 +50,9 @@ class DocumentController extends Controller
 
     public function getPageFoward($id){
         $doc = Document::where('id',$id)->first();
-        return view('documents.forward',compact('doc'));
+        $members = Profile::all();
+        $dv = Suite::all();
+        return view('documents.forward',compact('doc','members','dv'));
     }
     public function saveStateDocument(Request $req,$id){
         $state = new State;
@@ -142,15 +146,57 @@ class DocumentController extends Controller
         $doc->save();
         return redirect()->back()->with('end','Đã kết thúc văn bản !');
     }
-    public function searchDocument(Request $request){
-        $doc = $request->all();
-        $documents = Document::where(function($query) use ($doc){
-            $query->Where('documents.ngaybanhanh','>' ,$doc['tungay'])
-                  ->Where('documents.ngaybanhanh','<' ,$doc['denngay'])
-                  ->Where('documents.kihieu',$doc['kihieu'])
-                  ->Where('documents.id_sovanban', $doc['sovanban'])
-                  ->Where('documents.vanbanden', $doc['loai']);
-        })->get();
+    public function searchDocumentName(Request $request){
+        $key = $request->name;
+        $documents = Document::where('trichyeu','like','%'.$key.'%')->get();
         return view('documents.search.result', compact('documents'));
     }
+    public function searchDocumentSymbol(Request $request){
+        $key = $request->kihieu;
+        $documents = Document::where('kihieu','like','%'.$key.'%')->get();
+        return view('documents.search.result', compact('documents'));
+    }
+    public function searchDocumentBook(Request $request){
+        $key = $request->sovanban;
+        $documents = Document::where('id_sovanban','like','%'.$key.'%')->get();
+        return view('documents.search.result', compact('documents'));
+    }
+    public function searchDocumentDate(Request $request){
+        $fromDate = $request->fromDate;
+        $toDate = $request->toDate;
+        $documents = Document::where([['ngayden','>=',$fromDate],['ngayden','<=',$toDate]])->get();
+        return view('documents.search.result', compact('documents'));
+    }
+    public function searchDocumentType(Request $request){
+        $key = $request->loai;
+        $documents = Document::where('vanbanden',$key)->get();
+        return view('documents.search.result', compact('documents'));
+    }
+    public function searchDocumentGeneral(Request $request){
+        $fromDate = $request->fromDate;
+        $toDate = $request->toDate;
+        $key = $request->loai;
+        $documents = Document::where([['vanbanden','=',$key],['ngayden','>=',$fromDate],['ngayden','<=',$toDate]])->get();
+        return view('documents.search.result', compact('documents'));
+    }
+    public function printDocument()
+    {
+        # code...
+        $wordTest = new \PhpOffice\PhpWord\PhpWord();
+ 
+        $newSection = $wordTest->addSection();
+     
+        $desc1 = "The Portfolio details is a very useful feature of the web page. You can establish your archived details and the works to the entire web community. It was outlined to bring in extra clients, get you selected based on this details.";
+     
+        $newSection->addText($desc1, array('name' => 'Tahoma', 'size' => 15, 'color' => 'red'));
+     
+        $objectWriter = \PhpOffice\PhpWord\IOFactory::createWriter($wordTest, 'Word2007');
+        try {
+            $objectWriter->save(storage_path('TestWordFile.docx'));
+        } catch (Exception $e) {
+        }
+     
+        return response()->download(storage_path('TestWordFile.docx'));
+    }
+    
 }

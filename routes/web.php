@@ -11,9 +11,7 @@
 |
 */
 // user đăng ký đăng nhập
-Route::get('/register',function(){
-    return view('user.register');
-});
+Route::get('/register','UserController@getRegister');
 Route::post('/post-register','UserController@postRegister');
 Route::get('/login', function() {
     return view('user.login');
@@ -80,5 +78,30 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('search-document',function(){
         return view('documents.search.search');
     });
-    Route::post('search-document','DocumentController@searchDocument');
+    Route::get('/search-with-name', function () {
+        return view('documents.search.option.name');
+    });
+    Route::get('/search-with-symbol', function () {
+        return view('documents.search.option.symbol');
+    });
+    Route::get('/search-with-book', function () {
+        return view('documents.search.option.book');
+    });
+    Route::get('/search-with-date', function () {
+        return view('documents.search.option.date');
+    });
+    Route::get('/search-with-type', function () {
+        return view('documents.search.option.type');
+    });
+    Route::get('/search-with-general', function () {
+        return view('documents.search.option.general');
+    });
+    Route::post('search-document-name','DocumentController@searchDocumentName');
+    Route::post('search-document-symbol','DocumentController@searchDocumentSymbol');
+    Route::post('search-document-book','DocumentController@searchDocumentBook');
+    Route::post('search-document-date','DocumentController@searchDocumentDate');
+    Route::post('search-document-type','DocumentController@searchDocumentType');
+    Route::post('search-document-general','DocumentController@searchDocumentGeneral');
+    // Print word Document
+    Route::get('print-document','DocumentController@printDocument');
 });

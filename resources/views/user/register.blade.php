@@ -55,15 +55,23 @@
               <div class="col-md-6">
                 <label for="exampleInputName">Chức vụ </label>
                 <select class="form-control" name="position">
-                  <option value="1">Chủ tịch</option>
-                  <option value="2">Trưởng phòng</option>
+                  @foreach($cv as $cv)
+                <option value="{{$cv->id}}">{{$cv->position_name}}</option>
+                  @endforeach
                 </select>
               </div>
               <div class="col-md-6">
               <label for="exampleInputName">Phòng ban</label>
                 <select class="form-control" name="suite">
-                  <option value="1">Kinh tế</option>
-                  <option value="2">Văn thư</option>
+                    @foreach($dv as $dv)
+                    @if($dv->id != 12)
+                      <option value="{{$dv->id}}">{{$dv->suite_name}}</option>
+                      @elseif($dv->id == 12)
+                      <optgroup value="{{$dv->id}}"  label="{{$dv->suite_name}}"></optgroup>
+                      @else
+                      <option value="{{$dv->id}}">{{$dv->suite_name}}</option>
+                      @endif
+                    @endforeach
                 </select>
               </div>
             </div>
@@ -87,7 +95,7 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">Địa chỉ</label>
-                <input name="address" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Nhập địa chỉ của bạn">
+                <input name="address" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Nhập địa chỉ của bạn" value="Quảng Nam">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Email</label>
@@ -103,11 +111,11 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Mật khẩu</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Mật khẩu" name="password">
+                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Mật khẩu" name="password" value="123456">
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Xác nhận mật khẩu</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" name="passwordConfirm" placeholder="Xác nhận mật khẩu">
+                <input class="form-control" id="exampleConfirmPassword" type="password" name="passwordConfirm" placeholder="Xác nhận mật khẩu" value="123456">
               </div>
             </div>
           </div>

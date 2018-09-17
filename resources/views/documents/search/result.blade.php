@@ -12,7 +12,7 @@
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fa fa-table"></i> SỔ CÔNG VĂN
+                    <i class="fa fa-table"></i> KẾT QUẢ TÌM KIẾM CÔNG VĂN
                     </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -46,7 +46,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {{$i=1}}
+                                <!-- {{$i=1}} -->
                                 @foreach($documents as $document)
                                 <tr>
                                     <td>{{$i,$i++}}</td>
@@ -56,7 +56,7 @@
                                     <td>{{$document->kihieu}}</td>
                                     <td><a href="{{url('/detail-document',$document->id)}}">{{$document->trichyeu}}</a></td>
                                     <td>{{$document->ngaybanhanh}}</td>
-                                    <td>{{$document->id_loaivanban}}</td>
+                                    <td>{{$document->id_loaivanban == 1}}</td>
                                     <td>@if($document->status==1)
                                         Chưa xử lý
                                         @elseif($document->status==2)

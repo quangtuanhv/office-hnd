@@ -44,7 +44,25 @@
                                     <th>Người nhận <span class="text-danger">*</span></th>
                                     <td>
                                     <ul>
-                                        <li>
+
+@foreach($dv as $dv)
+    <li>
+        <input type="checkbox" name="check" id="{{$dv->suite_name}}">
+        <label for="{{$dv->suite_name}}">{{$dv->suite_name}}</label>
+
+        <ul id="sub-tall">
+            @foreach($members as $mem)
+            @if($mem->suite_id==$dv->id)
+            <li>
+            <input type="checkbox" name="handlers[]" value="{{$mem->id}}" id="{{$mem->id}}" >
+            <label for="{{$mem->id}}">{{$mem->last_name}} {{$mem->first_name}}</label>
+            </li>
+            @endif
+            @endforeach
+        </ul>
+    </li>
+@endforeach
+                                        {{-- <li>
                                             <input type="checkbox" name="tall" id="tall">
                                             <label for="tall">Ban thường trực</label>
 
@@ -80,7 +98,7 @@
                                                     <label for="short-3">One Sandwich</label>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                       </ul>
                                     </td>
                                 </tr>
@@ -92,7 +110,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <textarea id="editor" name="content">Next, use our Get Started docs to setup Tiny!</textarea>
+                                        <textarea id="editor" name="content"></textarea>
                                     </td>
                                 </tr>
                                 <tr>
@@ -128,6 +146,9 @@
     });
 
     $('.iframe-btn').on('click', function() { $(window).on('message', OnMessage); });
+});
+$("[name='check']").click(function(){
+    $(this).parent().find('ul input[type=checkbox]').not(this).prop('checked', this.checked);
 });
 </script>
 @endsection

@@ -36,7 +36,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                            {{$i=1}}
+                            <!-- {{$i=1}} -->
                                 @foreach( $contacts as $contact)
                                 <tr>
                                     <td>{{$i,$i++}}</td>

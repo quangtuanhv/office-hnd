@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Profile;
+use App\Position;
+use App\Suite;
 use Hash;
 
 class UserController extends Controller
@@ -100,5 +102,12 @@ class UserController extends Controller
             }
             else
         return redirect()->back()->with('changePassErr', ' ');          
+    }
+
+
+    public function getRegister(){
+        $cv = Position::all();
+        $dv = Suite::all();
+        return view('user.register',compact('cv','dv'));
     }
 }

@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <textarea id="editor" name="content">Next, use our Get Started docs to setup Tiny!</textarea>
+                                        <textarea id="editor" name="content"></textarea>
                                     </td>
                                 </tr>
                                 <tr>
